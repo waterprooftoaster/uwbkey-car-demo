@@ -326,8 +326,10 @@ public class CARSerialPortReader : MonoBehaviour
     public void openPort(string test)
     {
         string port = "\\\\.\\";
-        port += dropdown.options[dropdown.value].text;
+        string selectedPort = dropdown.options[dropdown.value].text;
+        port += selectedPort;
         print("Opening port: " + port);
+        serial.PortName = selectedPort;
         serial.Open();
         StartCoroutine(ReadSerial());
     }
