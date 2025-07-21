@@ -329,6 +329,8 @@ public class CARSerialPortReader : MonoBehaviour
         string selectedPort = dropdown.options[dropdown.value].text;
         port += selectedPort;
         print("Opening port: " + port);
+
+        // specify port instead of random
         serial.PortName = selectedPort;
         serial.Open();
         StartCoroutine(ReadSerial());
